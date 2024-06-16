@@ -19,7 +19,6 @@ namespace CPUWindowsFormsFramework
         }
        
 
-
         public static void SetControlBinding(Control ctrl, DataTable dt)
         {
             string propertyname = "";
