@@ -17,7 +17,7 @@ namespace CPUWindowsFormsFramework
             lst.DataBindings.Add("SelectedValue", targetdt, lst.ValueMember, false, DataSourceUpdateMode.OnPropertyChanged);
 
         }
-
+       
 
 
         public static void SetControlBinding(Control ctrl, DataTable dt)
