@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace CPUWindowsFormsFramework
 {
@@ -17,7 +12,7 @@ namespace CPUWindowsFormsFramework
             lst.DataBindings.Add("SelectedValue", targetdt, lst.ValueMember, false, DataSourceUpdateMode.OnPropertyChanged);
 
         }
-       
+
 
         public static void SetControlBinding(Control ctrl, DataTable dt)
         {
