@@ -88,6 +88,17 @@ namespace CPUWindowsFormsFramework
             return id; 
         }
 
+        public static int GetIdFromComboBox(ComboBox lst)
+        {
+            int value = 0;
+            if(lst.SelectedValue != null && lst.SelectedValue is int)
+            {
+                value = (int)lst.SelectedValue;
+            }
+            return value;
+        }
+
+
         public static void AddComboBoxToGrid(DataGridView grid, DataTable datasource, string tablename, string displaymember)
         {
             DataGridViewComboBoxColumn c = new DataGridViewComboBoxColumn();
