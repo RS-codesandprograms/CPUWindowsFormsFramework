@@ -85,9 +85,6 @@ namespace CPUWindowsFormsFramework
                 }
             }
 
-
-
-            //id = (int)gPresident.Rows[rowindex].Cells["PresidentId"].Value; 
             return id; 
         }
 
