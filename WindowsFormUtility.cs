@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Media;
 
 namespace CPUWindowsFormsFramework
 {
@@ -45,7 +46,7 @@ namespace CPUWindowsFormsFramework
         {
             grid.AllowUserToAddRows = false;
             grid.ReadOnly = true;
-           grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+             grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DoFormatGrid(grid, tablename); 
         }
 
