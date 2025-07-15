@@ -63,7 +63,7 @@ namespace CPUWindowsFormsFramework
             grid.RowHeadersWidth = 25;
             foreach (DataGridViewColumn col in grid.Columns)
             {
-                if (col.Name.EndsWith("Id"))
+                if (col.Name.ToLower().EndsWith("id"))
                 {
                     col.Visible = false; 
                 }
