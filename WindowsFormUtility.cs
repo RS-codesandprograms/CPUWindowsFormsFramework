@@ -47,6 +47,7 @@ namespace CPUWindowsFormsFramework
             grid.AllowUserToAddRows = false;
             grid.ReadOnly = true;
              grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            
             DoFormatGrid(grid, tablename); 
         }
 
@@ -59,7 +60,7 @@ namespace CPUWindowsFormsFramework
 
         private static void DoFormatGrid(DataGridView grid, string tablename)
         {
-            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grid.RowHeadersWidth = 25;
             foreach (DataGridViewColumn col in grid.Columns)
             {
