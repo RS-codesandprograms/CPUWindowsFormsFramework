@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Media;
 
 namespace CPUWindowsFormsFramework
@@ -7,7 +8,7 @@ namespace CPUWindowsFormsFramework
     {
 
 
-   
+
         public static void SetListBinding(ComboBox lst, DataTable sourcedt, DataTable? targetdt, string tablename)
         {
             lst.DataSource = sourcedt;
@@ -35,6 +36,9 @@ namespace CPUWindowsFormsFramework
                 case "dtp":
                     propertyname = "Value";
                     break;
+                case "ckb":
+                    propertyname = "Checked";
+                    break; 
             }
 
             if (propertyname != "" && columnname != "")
@@ -46,16 +50,16 @@ namespace CPUWindowsFormsFramework
         {
             grid.AllowUserToAddRows = false;
             grid.ReadOnly = true;
-             grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            
-            DoFormatGrid(grid, tablename); 
+            grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            DoFormatGrid(grid, tablename);
         }
 
         public static void FormatGridForEdit(DataGridView grid, string tablename)
         {
-            grid.EditMode = DataGridViewEditMode.EditOnEnter; 
+            grid.EditMode = DataGridViewEditMode.EditOnEnter;
             DoFormatGrid(grid, tablename);
-            
+
         }
 
         private static void DoFormatGrid(DataGridView grid, string tablename)
@@ -66,7 +70,7 @@ namespace CPUWindowsFormsFramework
             {
                 if (col.Name.ToLower().EndsWith("id"))
                 {
-                    col.Visible = false; 
+                    col.Visible = false;
                 }
             }
             string pkname = tablename + "Id";
@@ -79,7 +83,7 @@ namespace CPUWindowsFormsFramework
         public static int GetIdFromGrid(DataGridView grid, int rowindex, string columnname)
         {
             int id = 0;
-            if(rowindex < grid.Rows.Count && grid.Columns.Contains(columnname) && grid.Rows[rowindex].Cells[columnname].Value != DBNull.Value)
+            if (rowindex < grid.Rows.Count && grid.Columns.Contains(columnname) && grid.Rows[rowindex].Cells[columnname].Value != DBNull.Value)
             {
                 if (grid.Rows[rowindex].Cells[columnname].Value is int)
                 {
@@ -87,13 +91,13 @@ namespace CPUWindowsFormsFramework
                 }
             }
 
-            return id; 
+            return id;
         }
 
         public static int GetIdFromComboBox(ComboBox lst)
         {
             int value = 0;
-            if(lst.SelectedValue != null && lst.SelectedValue is int)
+            if (lst.SelectedValue != null && lst.SelectedValue is int)
             {
                 value = (int)lst.SelectedValue;
             }
@@ -108,7 +112,7 @@ namespace CPUWindowsFormsFramework
             c.DisplayMember = displaymember;
             c.ValueMember = tablename + "Id";
             c.DataPropertyName = c.ValueMember;
-            c.HeaderText = tablename; 
+            c.HeaderText = tablename;
             grid.Columns.Insert(0, c);
         }
 
@@ -123,9 +127,9 @@ namespace CPUWindowsFormsFramework
             foreach (Form frm in Application.OpenForms)
             {
                 int frmpkvalue = 0;
-                if(frm.Tag!= null && frm.Tag is int)
+                if (frm.Tag != null && frm.Tag is int)
                 {
-                    frmpkvalue = (int)frm.Tag; 
+                    frmpkvalue = (int)frm.Tag;
                 }
 
                 if (frm.GetType() == formtype && frmpkvalue == pkvalue)
@@ -167,6 +171,7 @@ namespace CPUWindowsFormsFramework
                 }
             }
         }
+
 
 
 
