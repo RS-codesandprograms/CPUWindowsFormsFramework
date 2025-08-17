@@ -1,14 +1,7 @@
-﻿using System;
-using System.Data;
-using System.Media;
-
-namespace CPUWindowsFormsFramework
+﻿namespace CPUWindowsFormsFramework
 {
     public class WindowsFormUtility
     {
-
-
-
         public static void SetListBinding(ComboBox lst, DataTable sourcedt, DataTable? targetdt, string tablename)
         {
             lst.DataSource = sourcedt;
