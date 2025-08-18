@@ -31,7 +31,7 @@
                     break;
                 case "ckb":
                     propertyname = "Checked";
-                    break; 
+                    break;
             }
 
             if (propertyname != "" && columnname != "")
