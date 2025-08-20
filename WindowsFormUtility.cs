@@ -106,6 +106,7 @@
             c.ValueMember = tablename + "Id";
             c.DataPropertyName = c.ValueMember;
             c.HeaderText = tablename;
+            c.Name = tablename;
             grid.Columns.Insert(0, c);
         }
 
