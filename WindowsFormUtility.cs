@@ -66,12 +66,6 @@
                     col.Visible = false;
                 }
             }
-            string pkname = tablename + "Id";
-            if (grid.Columns.Contains(pkname))
-            {
-                grid.Columns[pkname].Visible = false;
-            }
-
         }
         public static int GetIdFromGrid(DataGridView grid, int rowindex, string columnname)
         {
