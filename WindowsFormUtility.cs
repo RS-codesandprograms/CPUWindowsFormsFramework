@@ -59,6 +59,7 @@
         {
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grid.RowHeadersWidth = 25;
+            grid.ScrollBars = ScrollBars.Both;
             foreach (DataGridViewColumn col in grid.Columns)
             {
                 if (col.Name.ToLower().EndsWith("id"))
@@ -109,6 +110,7 @@
             grid.Columns.Add(new DataGridViewButtonColumn() { Text = "X", HeaderText = "Delete", Name = deletecolname, UseColumnTextForButtonValue = true });
 
         }
+     
         public static bool IsFormOpen(Type formtype, int pkvalue = 0)
         {
             bool exists = false;
