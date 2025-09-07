@@ -150,6 +150,25 @@
             }
 
         }
+
+        public static  void ValidateUserInputNumericField(string input, bool _decimal = false)
+       {
+            //List<int> lstints = new() {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+            //int result; 
+            //int.TryParse(input, out result);
+            //if (lstints.Contains(result) == false )
+            //{
+            //    MessageBox.Show("Only numeric characters are supported in this field.", Application.ProductName);
+            //}
+
+            if (int.TryParse(input, out int result) == false)
+            {
+              MessageBox.Show("Only numeric characters are supported in this field.", Application.ProductName); 
+            }
+        }
+
+
         private static void Btn_Click(object? sender, EventArgs e)
         {
             if (sender != null && sender is ToolStripButton)
@@ -164,7 +183,7 @@
 
 
 
-
+       
     }
 
 
