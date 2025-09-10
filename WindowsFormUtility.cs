@@ -110,7 +110,7 @@
             grid.Columns.Add(new DataGridViewButtonColumn() { Text = "X", HeaderText = "Delete", Name = deletecolname, UseColumnTextForButtonValue = true });
 
         }
-     
+
         public static bool IsFormOpen(Type formtype, int pkvalue = 0)
         {
             bool exists = false;
@@ -151,23 +151,24 @@
 
         }
 
-        public static  void ValidateUserInputNumericField(string input, bool _decimal = false)
-       {
-            //List<int> lstints = new() {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-            //int result; 
-            //int.TryParse(input, out result);
-            //if (lstints.Contains(result) == false )
-            //{
-            //    MessageBox.Show("Only numeric characters are supported in this field.", Application.ProductName);
-            //}
-
-            if (int.TryParse(input, out int result) == false)
+        public static void ValidateUserInputNumericField(string input, bool _decimal = false)
+        {
+            if (_decimal == true)
             {
-              MessageBox.Show("Only numeric characters are supported in this field.", Application.ProductName); 
+                if (!string.IsNullOrEmpty(input) && !decimal.TryParse(input, out decimal result))
+
+                { MessageBox.Show("Only numeric characters (including decimals) are supported in this field.", Application.ProductName); }
+
+            }
+            else if (!string.IsNullOrEmpty(input) && !int.TryParse(input, out int result))
+            {
+                {
+                    MessageBox.Show("Only whole numbers are supported in this field.", Application.ProductName);
+
+                }
+
             }
         }
-
 
         private static void Btn_Click(object? sender, EventArgs e)
         {
@@ -183,7 +184,7 @@
 
 
 
-       
+
     }
 
 
