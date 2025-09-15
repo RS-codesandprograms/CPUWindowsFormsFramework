@@ -39,6 +39,8 @@
 
         }
 
+
+
         public static void FormatGridForSearchResults(DataGridView grid, string tablename)
         {
             grid.AllowUserToAddRows = false;
@@ -168,6 +170,18 @@
                 }
 
             }
+        }
+        public static void DisplayDateTimeAsDate(List<Label> lststatusdates, List<Label> lststatusdatesvalid)
+        {
+            foreach (Label lbl in lststatusdates)
+            {
+                if (string.IsNullOrWhiteSpace(lbl.Text) == false)
+                {
+                    lststatusdatesvalid.Add(lbl);
+                }
+            }
+
+            lststatusdatesvalid.ForEach(lbl => lbl.Text = DateTime.Parse(lbl.Text).ToString("d"));
         }
 
         private static void Btn_Click(object? sender, EventArgs e)
