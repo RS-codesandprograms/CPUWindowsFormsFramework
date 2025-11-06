@@ -1,4 +1,6 @@
-﻿namespace CPUWindowsFormsFramework
+﻿using System.Diagnostics.Eventing.Reader;
+
+namespace CPUWindowsFormsFramework
 {
     public class WindowsFormUtility
     {
@@ -35,8 +37,11 @@
             }
 
             if (propertyname != "" && columnname != "")
-            { ctrl.DataBindings.Add(propertyname, bindsource, columnname, true, DataSourceUpdateMode.OnPropertyChanged); }
-
+            {
+                if (columnname.Contains("date"))
+                { ctrl.DataBindings.Add(propertyname, bindsource, columnname, true, DataSourceUpdateMode.OnPropertyChanged, null, "d"); }
+                else { ctrl.DataBindings.Add(propertyname, bindsource, columnname, true, DataSourceUpdateMode.OnPropertyChanged); }
+            }
         }
 
 
@@ -181,7 +186,8 @@
                 }
             }
 
-            lststatusdatesvalid.ForEach(lbl => lbl.Text = DateTime.Parse(lbl.Text).ToString("d"));
+             lststatusdatesvalid.ForEach(lbl => lbl.Text = DateTime.Parse(lbl.Text).ToString("d"));
+            
         }
 
         private static void Btn_Click(object? sender, EventArgs e)
