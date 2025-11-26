@@ -176,6 +176,15 @@ namespace CPUWindowsFormsFramework
 
             }
         }
+
+        public static void DisplayErrorMessageForDataGridViewDataErrorForNumericField(DataGridViewDataErrorEventArgs e)
+        {
+            if (((e.Context & DataGridViewDataErrorContexts.Formatting) != 0) || ((e.Context & DataGridViewDataErrorContexts.Parsing) != 0))
+            {
+                MessageBox.Show("Only whole numbers are supported in this field.", Application.ProductName);
+            }
+        }
+
         public static void DisplayDateTimeAsDate(List<Label> lststatusdates, List<Label> lststatusdatesvalid)
         {
             foreach (Label lbl in lststatusdates)
